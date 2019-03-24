@@ -6,3 +6,5 @@ create table monkey(
 );
 
 desc monkey;
+
+select * from monkey;
