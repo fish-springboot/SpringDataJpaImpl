@@ -14,4 +14,8 @@ public interface MonkeyRepo extends CrudRepository<Monkey, Long> {
 
     @Query("select m from Monkey m where m.name like ?1%")
     public List<Monkey> findAllMonkeyNameBeginWith(String beginString);
+
+    @Query(value = "select * from monkey where name like ?1%",
+            nativeQuery = true)
+    public List<Monkey> findMonkeyWithNativeSQL(String beginString);
 }

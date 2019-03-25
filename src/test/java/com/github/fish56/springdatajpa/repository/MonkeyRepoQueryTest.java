@@ -42,4 +42,14 @@ public class MonkeyRepoQueryTest {
             System.out.println(monkey.getId() + ": " + monkey.getName());
         }
     }
+
+    @Test
+    public void findMonkeyWithNativeSQL(){
+        List<Monkey> monkeys = monkeyRepo
+                .findMonkeyWithNativeSQL("P");
+
+        for(Monkey monkey : monkeys){
+            System.out.println(monkey.getId() + ": " + monkey.getName());
+        }
+    }
 }
