@@ -23,4 +23,23 @@ public class MonkeyRepoQueryTest {
             System.out.println(monkey.getId() + ": " + monkey.getName());
         }
     }
+
+    @Test
+    public void findAllMonkeyByQuery(){
+        List<Monkey> monkeys = monkeyRepo.findAllMonkeyByQuery();
+
+        for(Monkey monkey : monkeys){
+            System.out.println(monkey.getId() + ": " + monkey.getName());
+        }
+    }
+
+    @Test
+    public void findAllMonkeyNameBeginWith(){
+        List<Monkey> monkeys = monkeyRepo
+                       .findAllMonkeyNameBeginWith("Ja");
+
+        for(Monkey monkey : monkeys){
+            System.out.println(monkey.getId() + ": " + monkey.getName());
+        }
+    }
 }

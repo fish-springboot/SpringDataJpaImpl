@@ -8,3 +8,5 @@ create table monkey(
 desc monkey;
 
 select * from monkey;
+
+select id, name from monkey where name like 'J%';
