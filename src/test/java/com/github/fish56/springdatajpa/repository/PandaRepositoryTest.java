@@ -42,4 +42,17 @@ public class PandaRepositoryTest extends SpringDataJpaImplApplicationTests {
         List<Panda> pandas = repository.findByBirthDayBefore(new Date());
         System.out.println(JSONObject.toJSONString(pandas));
     }
+
+    // 重复插入时自动忽略id的值
+    @Test
+    public void saveTwice(){
+        panda1.setId(2L);
+        Panda panda = repository.save(panda1);
+        System.out.println(JSONObject.toJSONString(panda));
+
+        panda =  repository.save(panda1);
+        System.out.println(JSONObject.toJSONString(panda));
+        // Hibernate: insert into panda (id, birth_day, first_name, last_name) values (null, ?, ?, ?)
+        // {"id":2,"lastName":"Snow"}
+    }
 }
