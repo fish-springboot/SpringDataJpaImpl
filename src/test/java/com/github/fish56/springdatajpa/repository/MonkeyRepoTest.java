@@ -24,8 +24,10 @@ public class MonkeyRepoTest {
         // monkeyRepo.save(monkey);
 
         List<Monkey> monkeys = new ArrayList<>();
-        Monkey monkey1 = new Monkey("Bob");
-        Monkey monkey2 = new Monkey("Peter");
+        Monkey monkey1 = new Monkey();
+        monkey1.setName("Bob");
+        Monkey monkey2 = new Monkey();
+        monkey2.setName("Peter");
         monkeys.add(monkey1);
         monkeys.add(monkey2);
         monkeyRepo.saveAll(monkeys);
@@ -46,7 +48,8 @@ public class MonkeyRepoTest {
 
     @Test
     public void update(){
-        Monkey monkey = new Monkey("Jack");
+        Monkey monkey = new Monkey();
+        monkey.setName("Jon");
         monkey.setBirthDay(new Date());
         monkey.setId(1l);
         monkeyRepo.save(monkey);

@@ -1,10 +1,12 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/hello_spring_data_jpa
+    url: jdbc:mysql://localhost:3306/spring_data_jpa_impl
     username: root
 
   jpa:
-    show-sql: true
+    show-sql: true  # 在控制台打印SQL
     hibernate:
-      ddl-auto: update
+
+      ddl-auto: create
+      # update: ddl策略是随着实体类更新而更新数据库表结构

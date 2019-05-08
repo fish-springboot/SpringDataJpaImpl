@@ -1,6 +1,5 @@
-create database if not exists
-  hello_spring_data_jpa;
+create database if not exists spring_data_jpa_impl;
 
-use hello_spring_data_jpa;
+use spring_data_jpa_impl;
 
 show tables ;
