@@ -9,7 +9,7 @@ import java.util.Date;
 @Entity
 public class Panda {
     @Id // 主键是必须指定的
-    private Integer id;
+    private Long id;
     private String firstName;
     private String lastName;
 
