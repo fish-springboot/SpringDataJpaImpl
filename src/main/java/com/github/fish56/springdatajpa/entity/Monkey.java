@@ -13,7 +13,7 @@ public class Monkey {
 
     @Id // 作为表的主键，其实我觉得命名为PrimaryKey更加的合适
     @Column(columnDefinition = "smallint") // 手动指明对应的数据库数据类型
-    @GeneratedValue(strategy=GenerationType.AUTO) // 设置字段为auto_increment
+    @GeneratedValue(strategy=GenerationType.IDENTITY) // 设置字段生成策略
     private Long id;
 
     // 非空，非null，长度为20
