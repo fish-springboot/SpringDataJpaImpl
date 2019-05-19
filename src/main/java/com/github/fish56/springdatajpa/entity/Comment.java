@@ -12,4 +12,7 @@ public class Comment {
     private Long id;
 
     private String content;
+
+    @ManyToOne
+    private Article article;
 }

@@ -19,6 +19,9 @@ public class Panda {
 
     @Temporal(TemporalType.DATE) // 映射为Date类型，而不是默认的DateTime
     private Date birthDay;
+
+    @OneToOne
+    private Wallet wallet;
 }
 // create table panda (id integer not null, date date,
 //  first_name varchar(255), last_name varchar(255), primary key (id))

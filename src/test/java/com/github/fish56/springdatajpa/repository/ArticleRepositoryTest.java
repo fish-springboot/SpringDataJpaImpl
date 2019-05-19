@@ -31,29 +31,32 @@ public class ArticleRepositoryTest extends SpringDataJpaImplApplicationTests {
 
         comment1 = new Comment();
         comment1.setContent("还行");
-        //comment1.setArticle(article1);
+
         comment2 = new Comment();
         comment2.setContent("不错");
-        //comment2.setArticle(article1);
 
         comments = new ArrayList<>();
         comments.add(comment1);
         comments.add(comment2);
+    }
 
-        article1.setComments(comments);
+    @Test
+    public void saveComment(){
+        commentRepository.save(comment1);
+        Iterable<Comment> comments = commentRepository.findAll();
+        System.out.println(JSONObject.toJSONString(comments));
+
     }
 
     @Test
     public void save(){
-        Article article = articleRepository.save(article1);
-        System.out.println(JSONObject.toJSONString(article));
-
-        Iterable<Comment> comments = commentRepository.findAll();
-        System.out.println(JSONObject.toJSONString(comments));
-
         commentRepository.save(comment1);
         commentRepository.save(comment2);
-        Iterable<Comment> comments2 = commentRepository.findAll();
-        System.out.println(JSONObject.toJSONString(comments));
+
+        article1.setComments(comments);
+        articleRepository.save(article1);
+
+        Iterable<Article> articles = articleRepository.findAll();
+        System.out.println(JSONObject.toJSONString(articles));
     }
 }
