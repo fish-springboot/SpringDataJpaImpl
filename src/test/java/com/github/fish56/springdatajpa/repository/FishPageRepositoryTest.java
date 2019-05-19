@@ -31,7 +31,9 @@ public class FishPageRepositoryTest extends SpringDataJpaImplApplicationTests {
         // 创建分页对象, 每页容量为2，获取第三页
         Pageable pageable = PageRequest.of(3, 2);
 
-        // 分页查询
+        /**
+         * 分页查询，返回的是iterable对象
+         */
         Page<Fish> fishPage = fishPageRepository.findAll(pageable);
 
         System.out.println(fishPage.getTotalElements());
