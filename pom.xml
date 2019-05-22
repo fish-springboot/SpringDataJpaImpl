@@ -19,6 +19,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.4.1.Final</version>
+        </dependency>
         <!-- 不要引入web模块，启动的慢！！ -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
