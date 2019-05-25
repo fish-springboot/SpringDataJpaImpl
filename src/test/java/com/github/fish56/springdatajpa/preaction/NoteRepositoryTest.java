@@ -1,13 +1,12 @@
-package com.github.fish56.springdatajpa.repository;
+package com.github.fish56.springdatajpa.preaction;
 
 import com.github.fish56.springdatajpa.SpringDataJpaImplApplicationTests;
-import com.github.fish56.springdatajpa.entity.Note;
+import com.github.fish56.springdatajpa.preaction.Note;
+import com.github.fish56.springdatajpa.preaction.NoteRepository;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
-
-import static org.junit.Assert.*;
 
 public class NoteRepositoryTest extends SpringDataJpaImplApplicationTests {
     @Autowired

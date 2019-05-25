@@ -1,16 +1,15 @@
-package com.github.fish56.springdatajpa.repository;
+package com.github.fish56.springdatajpa.one2on2;
 
 import com.alibaba.fastjson.JSONObject;
 import com.github.fish56.springdatajpa.SpringDataJpaImplApplicationTests;
-import com.github.fish56.springdatajpa.entity.Panda;
+import com.github.fish56.springdatajpa.one2one.Panda;
+import com.github.fish56.springdatajpa.one2one.PandaRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class PandaRepositoryTest extends SpringDataJpaImplApplicationTests {
     @Autowired

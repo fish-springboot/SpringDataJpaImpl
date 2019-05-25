@@ -1,4 +1,4 @@
-package com.github.fish56.springdatajpa.entity;
+package com.github.fish56.springdatajpa.preaction;
 
 import lombok.Data;
 

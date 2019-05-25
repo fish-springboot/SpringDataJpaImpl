@@ -1,4 +1,4 @@
-package com.github.fish56.springdatajpa.entity;
+package com.github.fish56.springdatajpa.one2many;
 
 import lombok.Data;
 
@@ -13,6 +13,6 @@ public class Comment {
 
     private String content;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Article article;
 }

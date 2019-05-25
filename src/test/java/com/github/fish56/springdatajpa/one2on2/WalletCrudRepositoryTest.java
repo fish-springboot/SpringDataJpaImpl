@@ -1,14 +1,14 @@
-package com.github.fish56.springdatajpa.repository;
+package com.github.fish56.springdatajpa.one2on2;
 
 import com.alibaba.fastjson.JSONObject;
 import com.github.fish56.springdatajpa.SpringDataJpaImplApplicationTests;
-import com.github.fish56.springdatajpa.entity.Panda;
-import com.github.fish56.springdatajpa.entity.Wallet;
+import com.github.fish56.springdatajpa.one2one.Panda;
+import com.github.fish56.springdatajpa.one2one.PandaRepository;
+import com.github.fish56.springdatajpa.one2one.Wallet;
+import com.github.fish56.springdatajpa.one2one.WalletCrudRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import static org.junit.Assert.*;
 
 public class WalletCrudRepositoryTest extends SpringDataJpaImplApplicationTests {
     @Autowired

@@ -1,8 +1,9 @@
-package com.github.fish56.springdatajpa.repository;
+package com.github.fish56.springdatajpa.crud;
 
 import com.alibaba.fastjson.JSONObject;
 import com.github.fish56.springdatajpa.SpringDataJpaImplApplicationTests;
-import com.github.fish56.springdatajpa.entity.Fish;
+import com.github.fish56.springdatajpa.crud.Fish;
+import com.github.fish56.springdatajpa.crud.FishPageRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
-import static org.junit.Assert.*;
+import java.util.List;
 
 public class FishPageRepositoryTest extends SpringDataJpaImplApplicationTests {
     @Autowired
@@ -26,6 +27,9 @@ public class FishPageRepositoryTest extends SpringDataJpaImplApplicationTests {
         }
     }
 
+    /**
+     * 分页查询数据
+     */
     @Test
     public void findAll(){
         // 创建分页对象, 每页容量为2，获取第三页
@@ -49,5 +53,11 @@ public class FishPageRepositoryTest extends SpringDataJpaImplApplicationTests {
 //        {"id":8,"name":"fish 8"}
     }
 
-
+    @Test
+    public void findById(){
+        Pageable pageable = PageRequest.of(2, 2);
+        List<Fish> fishList = fishPageRepository.findByIdGreaterThan(2L, pageable);
+        System.out.println(JSONObject.toJSONString(fishList));
+        // [{"id":7,"name":"fish 7"},{"id":8,"name":"fish 8"}]
+    }
 }

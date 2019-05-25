@@ -17,14 +17,18 @@ public class MonkeyCrudRepositoryTest extends SpringDataJpaImplApplicationTests 
     @Autowired
     private MonkeyCrudRepository repository;
 
-    // 声明一些变量，省的在每个测试用例中声明
+    /**
+     * 声明一些变量，省的在每个测试用例中声明
+     */
     private Monkey monkey1;
     private Monkey monkey2;
     private List<Monkey> monkeys;
 
     private Optional<Monkey> monkey;
 
-    // 在每个测试用例启动前初始化环境
+    /**
+     * 在每个测试用例启动前初始化环境
+     */
     @Before
     public void init(){
         monkey1 = new Monkey();
