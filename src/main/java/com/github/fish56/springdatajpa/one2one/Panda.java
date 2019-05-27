@@ -1,11 +1,13 @@
 package com.github.fish56.springdatajpa.one2one;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Data
+@Accessors(chain = true)
 @Entity
 public class Panda {
     /**
@@ -29,7 +31,7 @@ public class Panda {
     @Temporal(TemporalType.DATE)
     private Date birthDay;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE)
     private Wallet wallet;
 }
 // 对应的建表语句如下

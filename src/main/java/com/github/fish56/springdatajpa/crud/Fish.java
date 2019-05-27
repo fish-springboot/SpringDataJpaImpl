@@ -3,11 +3,10 @@ package com.github.fish56.springdatajpa.crud;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Data
 @Entity
-public class Fish {
+final public class Fish {
     @Id // 主键是必须指定的
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,3 +14,4 @@ public class Fish {
     @Column(nullable = false, unique = true)
     private String name;
 }
+// create table fish (id bigint not null auto_increment, name varchar(255) not null, primary key (id))

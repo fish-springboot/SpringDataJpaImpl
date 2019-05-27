@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:test
+
+  jpa:
+    show-sql: true  # 在控制台打印SQL
+    hibernate:
+
+      ddl-auto: create
+      # update: ddl策略是随着实体类更新而更新数据库表结构

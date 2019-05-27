@@ -26,3 +26,4 @@ public class Blog {
     @UpdateTimestamp
     private Timestamp updateTime;
 }
+// create table blog (id integer not null auto_increment, content varchar(255), create_time datetime, title varchar(255), update_time datetime, primary key (id))

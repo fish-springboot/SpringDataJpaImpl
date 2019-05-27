@@ -41,3 +41,4 @@ public class Note {
         System.out.println("PreUpdate--------");
     }
 }
+// create table note (id bigint not null auto_increment, content varchar(255), create_time datetime not null, update_time datetime not null, primary key (id))

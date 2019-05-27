@@ -6,13 +6,19 @@ import com.github.fish56.springdatajpa.one2one.Panda;
 import com.github.fish56.springdatajpa.one2one.PandaRepository;
 import com.github.fish56.springdatajpa.one2one.Wallet;
 import com.github.fish56.springdatajpa.one2one.WalletCrudRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Optional;
+
+@Slf4j
 public class WalletCrudRepositoryTest extends SpringDataJpaImplApplicationTests {
     @Autowired
-    private WalletCrudRepository repository;
+    private PandaRepository pandaRepository;
+    @Autowired
+    private WalletCrudRepository walletRepository;
 
     private Wallet wallet1;
     private Wallet wallet2;
@@ -21,34 +27,41 @@ public class WalletCrudRepositoryTest extends SpringDataJpaImplApplicationTests 
 
     @Before
     public void init(){
-        panda1 = new Panda();
-        panda1.setLastName("Snow");
-        panda2 = new Panda();
-        panda2.setLastName("Jon");
+        panda1 = new Panda().setLastName("Snow");
+        panda2 = new Panda().setLastName("Jon");
 
-        wallet1 = new Wallet();
-        wallet1.setMoney(22);
-        wallet1.setOwner(panda1);
-
-        wallet2 = new Wallet();
-        wallet2.setMoney(22);
-        wallet2.setOwner(panda2);
+        wallet1 = new Wallet().setMoney(33);
+        wallet2 = new Wallet().setMoney(22);
     }
 
     @Test(expected = Exception.class)
     public void save(){
         // 保存之前需要把panda保存到数据库
-        Wallet wallet = repository.save(wallet1);
+        Wallet wallet = walletRepository.save(wallet1);
         System.out.println(JSONObject.toJSONString(wallet));
     }
 
-    @Autowired
-    private PandaRepository pandaRepository;
+
     @Test
     public void save2(){
+        //  object references an unsaved transient instance - save the transient instance before flushing
+        panda1.setWallet(wallet1);
         pandaRepository.save(panda1);
-        Wallet wallet = repository.save(wallet1);
-        System.out.println(JSONObject.toJSONString(wallet));
-        // {"id":1,"money":22,"owner":{"id":1,"lastName":"Snow"}}
+
+        // 从打印结果中，我们可以看到
+        System.out.println(panda1.getWallet());
+
+        Long walletId = wallet1.getId();
+
+        pandaRepository.delete(panda1);
+
+        Optional<Wallet> walletOptional2 = walletRepository.findById(walletId);
+
+        if (walletOptional2.isPresent()){
+            System.out.println(walletOptional2.get());
+        } else {
+            System.out.println("数据库中wallet1也被删除了");
+        }
+
     }
 }
