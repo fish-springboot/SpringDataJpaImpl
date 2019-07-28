@@ -1,6 +1,7 @@
 package com.github.fish56.springdatajpa.timestamp;
 
 import lombok.Data;
+import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 @Data
+@ToString
 @Entity
 public class Blog {
     @Id

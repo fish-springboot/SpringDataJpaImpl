@@ -1,11 +1,13 @@
 package com.github.fish56.springdatajpa.entity;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Data
+@ToString
 @Entity // 将当前类作为实体映射到数据库
 @Table(name = "monkey") // 对应到数据库的表名
 public class Monkey {

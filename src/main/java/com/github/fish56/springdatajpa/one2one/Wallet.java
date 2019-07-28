@@ -1,11 +1,13 @@
 package com.github.fish56.springdatajpa.one2one;
 
 import lombok.Data;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 
 @Data
+@ToString
 @Accessors(chain = true)
 @Entity
 public class Wallet {

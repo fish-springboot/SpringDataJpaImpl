@@ -1,11 +1,13 @@
 package com.github.fish56.springdatajpa.preaction;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Data
+@ToString
 @Entity
 public class Note {
     @Id // 主键是必须指定的

@@ -1,12 +1,14 @@
 package com.github.fish56.springdatajpa.one2one;
 
 import lombok.Data;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Data
+@ToString
 @Accessors(chain = true)
 @Entity
 public class Panda {

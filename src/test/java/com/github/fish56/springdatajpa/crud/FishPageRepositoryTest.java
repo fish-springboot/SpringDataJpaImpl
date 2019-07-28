@@ -2,8 +2,6 @@ package com.github.fish56.springdatajpa.crud;
 
 import com.alibaba.fastjson.JSONObject;
 import com.github.fish56.springdatajpa.SpringDataJpaImplApplicationTests;
-import com.github.fish56.springdatajpa.crud.Fish;
-import com.github.fish56.springdatajpa.crud.FishPageRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +43,8 @@ public class FishPageRepositoryTest extends SpringDataJpaImplApplicationTests {
 
         System.out.println(fishPage.getTotalPages());
         // 5
+
+        System.out.println(JSONObject.toJSONString(fishPage.iterator()));
 
         for (Fish fish : fishPage){
             System.out.println(JSONObject.toJSONString(fish));

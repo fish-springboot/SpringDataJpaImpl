@@ -1,10 +1,12 @@
 package com.github.fish56.springdatajpa.crud;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Data
+@ToString
 @Entity
 final public class Fish {
     @Id // 主键是必须指定的

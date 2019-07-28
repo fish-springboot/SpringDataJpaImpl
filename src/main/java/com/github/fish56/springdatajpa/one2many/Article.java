@@ -1,6 +1,7 @@
 package com.github.fish56.springdatajpa.one2many;
 
 import lombok.Data;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import java.util.List;
  * 一个文章对应多个评论
  */
 @Data
+@ToString
 @Accessors(chain = true)
 @Entity
 public class Article {
